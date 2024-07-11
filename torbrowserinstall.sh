@@ -34,4 +34,4 @@ echo ""
 echo -e "${co2}[+]${endco}${co8} Extracting Tor${endco}"
 tar -xf tor-browser-linux-x86_64-13.5.1.tar.xz
 rm tor-browser-linux-x86_64-13.5.1.tar.xz
-echo -e "${co2}[+]${endco}${co8}Esegui tor con ./start-tor-browser.desktop ${endco}"
+echo -e "${co2}[+]${endco}${co8} Esegui tor con ./start-tor-browser.desktop ${endco}"
