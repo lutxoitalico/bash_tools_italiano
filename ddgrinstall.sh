@@ -9,6 +9,6 @@ co8="\e[0;37m\033[1m"
 endco="\033[0m\e[0m"
 #Inizia
 clear
-echo -e "${co2}[+]${endco}${co8} Installando${co3} DuckDukGo${endco} dalla linea di commandi${endco}"
+echo -e "${co2}[+]${endco}${co8} Installando${co4} DuckDukGo${endco} dalla linea di commandi${endco}"
 sudo apt-get install ddgr
-echo -e "${co2}[+]${endco}${co8} Per trovare risultati relativi alla pizza margherita usa:${endco}${co3} ddgr pizza margherita ${endco}" 
+echo -e "${co2}[+]${endco}${co8} Esempio di ricerca 'pizza margherita':${endco}${co4} ddgr pizza margherita ${endco}" 
