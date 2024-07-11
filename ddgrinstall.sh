@@ -8,3 +8,4 @@ snap install ddgr
 # scrivi 
 # ddgr pizza margherita 
 # per trovare risultati relativi alla pizza margherita
+ddgr pizza margherita 
