@@ -1,4 +1,4 @@
-#!/bin/bash
+te#!/bin/bash
 #Instalazione di bitcoin-core-24.1
 #Colori
 co1="\e[0;31m\033[1m"
