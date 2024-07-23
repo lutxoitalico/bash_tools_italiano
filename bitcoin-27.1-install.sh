@@ -10,7 +10,7 @@ co6="\e[0;35m\033[1m"
 co8="\e[0;37m\033[1m"
 endco="\033[0m\e[0m"
    
-function_limpieza(){
+function_pulizia(){
    #pulizia iniziale
    echo -e "${co5}[+] ${endco}${co8}Arresta Bitcoin core...${endco}"
    sudo bitcoin-cli stop > /dev/null
@@ -20,7 +20,7 @@ function_limpieza(){
    sudo rm -r -f $HOME/.bitcoin/
 }
 
-function_herramientas(){
+function_tools(){
    #installare tools
    echo -e "${co5}[+] ${endco}${co8}Install tools necessari ${endco}"
    sudo apt-get install -y bc jq autoconf file gcc libc-dev make g++ pkgconf re2c git libtool automake gcc xxd figlet
@@ -40,7 +40,7 @@ function_dowload_btc(){
    sleep 1
 }
 
-function_verificar_firmas(){
+function_verificare_firme(){
    #verificare firme
    echo -e "${co5}[+] ${endco}${co8}Verifica lista di checksum ${endco}"
    shasum --ignore-missing --check SHA256SUMS
@@ -63,7 +63,7 @@ function_unzip_clean(){
    sleep 1 
 }
 
-function_instala(){
+function_installa(){
   #instalare binari
   echo -e "${co5}[+] ${endco}${co2}Installa Bitcoin Core 27.1 ${endco}"
   sudo install -m 0755 -o root -g root -t /usr/local/bin/ bitcoin-27.1/bin/*
@@ -82,10 +82,10 @@ function_conf(){
   cat $HOME/.bitcoin/bitcoin.conf 
 }
 
-function_limpieza
-function_herramientas
+function_pulizia
+function_tools
 function_dowload_btc
-function_verificar_firmas
+function_verificare_firme
 function_unzip_clean
-function_instala
+function_installa
 function_conf
