@@ -14,6 +14,7 @@ functionClean(){
    clear
    figlet Lutxoitalico
    sleep 1 
+   clear
    echo -e "${co5}[!] ${endco}${co2}Stop Bitcoin Core${endco}"
    bitcoin-cli stop &> /dev/null 
    echo -e "${co5}[!] ${endco}${co2}Elimina files temporanei di REGTEST${endco}"
