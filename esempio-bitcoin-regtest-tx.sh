@@ -79,7 +79,7 @@ functionMining5(){
    # Minare 5 blocchi e verificare balance del miner  
    echo -e "\n${co5}[+] ${endco}${co8}Blockheight: \t\t\t\t${endco}${co3}$(bitcoin-cli getblockchaininfo | grep "blocks" | awk '{print $2}' | tr ',' ' ')${endco}"
    echo -e "${co5}[+] ${endco}${co8}Balance: \t\t\t\t\t${endco}${co3}$(bitcoin-cli -rpcwallet=Minatore getbalance | bc)${endco}"
-   echo -e "${co5}[+] ${endco}${co2}Minando 110 blocchi...${endco}"
+   echo -e "${co5}[+] ${endco}${co2}Minando 5 blocchi...${endco}"
      bitcoin-cli generatetoaddress 5 $walletAddressMinatore
    echo -e "${co5}[+] ${endco}${co8}Blockheight: \t\t\t\t${endco}${co3}$(bitcoin-cli getblockchaininfo | grep blocks | awk '{print $2}' | tr ',' ' ')${endco}"
    echo -e "${co5}[+] ${endco}${co8}Balance: \t\t\t\t\t${endco}${co3}$(bitcoin-cli -rpcwallet=Minatore getbalance | bc)${endco}"
