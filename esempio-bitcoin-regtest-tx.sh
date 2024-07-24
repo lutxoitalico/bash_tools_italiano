@@ -33,11 +33,11 @@ functionWalletMinatore(){
    echo -e "${co5}[+] ${endco}${co8}Creando wallet Minatore ${endco}"
      bitcoin-cli -named createwallet wallet_name="Minatore" > /dev/null
      walletAddressMinatore=$(bitcoin-cli -rpcwallet=Minatore getnewaddress "Wallet del Miner")
-   echo -e "${co5}[+] ${endco}${co8}Nueva Wallet Minatore: \t\t\t${endco}${co3}$walletAddressMinatore ${endco}"
+   echo -e "${co5}[+] ${endco}${co8}Nuova Wallet Minatore: \t\t\t${endco}${co3}$walletAddressMinatore ${endco}"
      sleep 1 
 }
 
-fuctionWalletTrader(){
+functionWalletTrader(){
    echo -e "${co5}[+] ${endco}${co8}Creando wallet del Trader ${endco}"
      bitcoin-cli -named createwallet wallet_name="Trader" > /dev/null
      walletAddressTrader=$(bitcoin-cli -rpcwallet=Trader getnewaddress "Wallet del Trader")
@@ -75,7 +75,7 @@ busquedaMempool(){
    sleep 1
 }
 
-functionmining5(){
+functionMining5(){
    # Minare 5 blocchi e verificare balance del miner  
    echo -e "\n${co5}[+] ${endco}${co8}Blockheight: \t\t\t\t${endco}${co3}$(bitcoin-cli getblockchaininfo | grep "blocks" | awk '{print $2}' | tr ',' ' ')${endco}"
    echo -e "${co5}[+] ${endco}${co8}Balance: \t\t\t\t\t${endco}${co3}$(bitcoin-cli -rpcwallet=Minatore getbalance | bc)${endco}"
@@ -136,5 +136,5 @@ functionMining110
 functionMining5
 transazione20
 busquedaMempool
-mining5blocks
+functionMining5
 transazioneDettagliata
