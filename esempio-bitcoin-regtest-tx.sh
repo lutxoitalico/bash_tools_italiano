@@ -12,6 +12,7 @@ endco="\033[0m\e[0m"
 
 functionClean(){
    clear
+   figlet Lutxoitalico
    sleep 1 
    echo -e "${co5}[!] ${endco}${co2}Stop Bitcoin Core${endco}"
    bitcoin-cli stop &> /dev/null 
@@ -24,7 +25,6 @@ functionStart(){
    echo -e "${co5}[+] ${endco}${co8}Restart Bitcoin Core${endco}"
      bitcoind -daemon
    echo -e "\t\t\t\t\t\t${co5}$(bitcoind --version | grep version)${endco}"
-     sleep 3
    echo -e "${co5}[+] ${endco}${co8}Blockchain: ${endco}${co3}\t\t\t\t$(bitcoin-cli getblockchaininfo | jq -r .chain ) ${endco}"
  }
 
@@ -34,7 +34,6 @@ functionWalletMinatore(){
      bitcoin-cli -named createwallet wallet_name="Minatore" > /dev/null
      walletAddressMinatore=$(bitcoin-cli -rpcwallet=Minatore getnewaddress "Wallet del Miner")
    echo -e "${co5}[+] ${endco}${co8}Nuova Wallet Minatore: \t\t\t${endco}${co3}$walletAddressMinatore ${endco}"
-     sleep 1 
 }
 
 functionWalletTrader(){
@@ -42,7 +41,6 @@ functionWalletTrader(){
      bitcoin-cli -named createwallet wallet_name="Trader" > /dev/null
      walletAddressTrader=$(bitcoin-cli -rpcwallet=Trader getnewaddress "Wallet del Trader")
    echo -e "${co5}[+] ${endco}${co8}Nueva Wallet Trader: \t\t\t${endco}${co3}$walletAddressTrader ${endco}"
-     sleep 1
 }
 
 
@@ -55,7 +53,6 @@ functionMining110(){
      bitcoin-cli generatetoaddress 110 ${walletAddressMinatore} > /dev/null
    echo -e "\n${co5}[+] ${endco}${co8}Blockheight: \t\t\t\t${endco}${co3}$(bitcoin-cli getblockchaininfo | grep "blocks" | awk '{print $2}' | tr ',' ' ')${endco}"
    echo -e "${co5}[+] ${endco}${co8}Balance: \t\t\t\t\t${endco}${co3}$(bitcoin-cli -rpcwallet=Minatore getbalance | bc)${endco}"
-     sleep 1
 }
 
 transazione20(){
@@ -64,7 +61,6 @@ transazione20(){
    echo -e   "${co5}[+] ${endco}${co8}Saldo nella wallet del Trader: \t\t${endco}${co3}$(bitcoin-cli -rpcwallet=Trader getbalance | bc)${endco}"
    # Transazione: Il Minatore invia 20 bitcoin al Trader
    txMinatoreTrader=$(bitcoin-cli -rpcwallet=Minatore sendtoaddress "$walletAddressTrader" 20)
-
    echo -e "\n${co5}[+] ${endco}${co8}Invio di 20 BTC al trader...${endco}"
    echo -e   "${co5}[+] ${endco}${co8}Hash di transazione Minatore -> trader \t${endco}${co3}$txMinatoreTrader${endco}"
 }
@@ -72,7 +68,6 @@ transazione20(){
 busquedaMempool(){
    mempoolTx=$(bitcoin-cli getmempoolentry $txMinatoreTrader | jq -r .unbroadcast )
    echo -e "${co5}[+] ${endco}${co8}Stato della transazione nella mempool: \t${endco}${co3}$mempoolTx${endco} "
-   sleep 1
 }
 
 functionMining5(){
@@ -83,7 +78,6 @@ functionMining5(){
      bitcoin-cli generatetoaddress 5 $walletAddressMinatore
    echo -e "${co5}[+] ${endco}${co8}Blockheight: \t\t\t\t${endco}${co3}$(bitcoin-cli getblockchaininfo | grep blocks | awk '{print $2}' | tr ',' ' ')${endco}"
    echo -e "${co5}[+] ${endco}${co8}Balance: \t\t\t\t\t${endco}${co3}$(bitcoin-cli -rpcwallet=Minatore getbalance | bc)${endco}"
-     sleep 1
  } 
 
 transazioneDettagliata(){
@@ -111,9 +105,7 @@ transazioneDettagliata(){
    echo -e "${co5}[+] ${endco}${co8}Send to Wallet Address \t\t\t${endco}${co3}$txMinatoreFromAddress1 ${endco}"
    echo -e "${co5}[+] ${endco}${co8}Importo \t\t\t\t\t${endco}${co3}$MinatoreFromAddressAmount1 ${endco}"
    echo -e "${co5}[+] ${endco}${co8}Fee \t\t\t\t\t${endco}${co3}$txFee ${endco}"
-
-   sleep 1
-   
+  
    txTrader=$(bitcoin-cli -rpcwallet=Trader gettransaction $txMinatoreTrader)
    txTraderId=$(echo $txTrader | jq -r .txid )
    txTraderAmount=$(echo $txTrader | jq .amount )
@@ -125,16 +117,23 @@ transazioneDettagliata(){
    echo -e "${co5}[+] ${endco}${co8}Wallet Address: \t\t\t\t${endco}${co3}$txTraderAddress${endco}"
    echo -e "${co5}[+] ${endco}${co8}Importo ricevuto: \t\t\t\t${endco}${co3}$txTraderAmount${endco}"
    echo -e "${co5}[+] ${endco}${co8}Confirmations: \t\t\t\t${endco}${co3}$txConfirmations${endco}"
-   sleep 1
  }
 
 functionClean
 functionStart
+sleep 1
 functionWalletMinatore
+sleep 1
 functionWalletTrader
+sleep 1
 functionMining110
+sleep 1
 functionMining5
+sleep 1
 transazione20
+sleep 1
 busquedaMempool
+sleep 1
 functionMining5
+sleep 1
 transazioneDettagliata
