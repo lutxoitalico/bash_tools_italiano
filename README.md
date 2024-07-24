@@ -3,6 +3,8 @@
 ## Bitcoin
    * `bitcoin-24.1-install.sh` installa e verifica Bitcoin Core 24.1 per Linux su AMD64
    * `bitcoin-27.1-install.sh` installa e verifica Bitcoin Core 27.1 per Linux su AMD64
+## Bitcoin tests
+   * `esempio-bitcoin-regtest-tx.sh` realizza una transazione Minatore - Trader su REGTEST
 
 ## Monero
    * `monero-18.3.3-install.sh` installa e verifica Monero GUI per Linux su AMD64
@@ -16,4 +18,4 @@
    * `pcstatus.sh` ottiene alcune informazione sullo status del PC
 
 Scarica tutti i files di utilità:
-   * `git clone https://github.com/lutxoitalico/bitcoin_cli_in_italiano.git`
+   * `git clone https://github.com/lutxoitalico/bash_tools_italiano.git`
