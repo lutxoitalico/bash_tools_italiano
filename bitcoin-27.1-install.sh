@@ -9,7 +9,7 @@ co5="\e[0;34m\033[1m"
 co6="\e[0;35m\033[1m"
 co8="\e[0;37m\033[1m"
 endco="\033[0m\e[0m"
-   
+
 function_pulizia(){
    #pulizia iniziale
    echo -e "${co5}[+] ${endco}${co8}Arresta Bitcoin core...${endco}"
@@ -29,6 +29,8 @@ function_tools(){
 
 function_dowload_btc(){
    #scarica bitcoin files
+   clear
+   figlet Bitcoin-Core-27.1
    echo -e "${co5}[+] ${endco}${co8}Scarica Bitcoin core 27.1${endco}"
    wget https://bitcoincore.org/bin/bitcoin-core-27.1/bitcoin-27.1-x86_64-linux-gnu.tar.gz > /dev/null
    echo -e "${co5}[+] ${endco}${co8}Scarica checksum crittografico SHA256SUMS ${endco}"
