@@ -13,7 +13,7 @@ endco="\033[0m\e[0m"
 function_pulizia(){
    #pulizia iniziale
    echo -e "${co5}[+] ${endco}${co8}Arresta Bitcoin core...${endco}"
-   sudo bitcoin-cli stop > /dev/null
+   sudo bitcoin-cli stop &> /dev/null
    sleep 3
    echo -e "${co5}[+] ${endco}${co8}Cancella Bitcoin core...${endco}"
    sudo rm -r -f /usr/local/bin/*
