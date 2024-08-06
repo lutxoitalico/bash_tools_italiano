@@ -1,0 +1,7 @@
+# Attenzione: Il nome del file deve essere "bitcoin.conf" senza -testnet
+# [chain]
+# Test Network.
+chain=test
+
+# Run this node on the Bitcoin Test Network. Equivalent to -chain=test
+testnet=1
