@@ -97,7 +97,7 @@ let mia_var+=1
 echo "somma e assegnazione"
 echo $mia_var
 let mia_var-=1 
-echoi "sostrazione e assegnazione"
+echo "sostrazione e assegnazione"
 echo $mia_var
 let mia_var*=2 
 echo "moltiplicazione e assegnazione"
