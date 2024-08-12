@@ -1,25 +1,24 @@
 #!/bin/bash
 
-# Ejercicio 01
+# Esercizio 01
 
- # EJERCICIO:
- # - Crea ejemplos utilizando todos los tipos de operadores de tu lenguaje:
- #   Aritméticos, lógicos, de comparación, asignación, identidad, pertenencia, bits...
- #   (Ten en cuenta que cada lenguaje puede poseer unos diferentes)
- # - Utilizando las operaciones con operadores que tú quieras, crea ejemplos
- #   que representen todos los tipos de estructuras de control que existan
- #   en tu lenguaje:
- #   Condicionales, iterativas, excepciones...
- # - Debes hacer print por consola del resultado de todos los ejemplos.
+ # ESERCIZIO:
+ # - Crea esempi utilizzando tutti i tipi di operatori nel tuo linguaggio preferito:
+ # Aritmetica, logica, confronto, assegnazione, identità, appartenenza, bit...
+ # (Tieni presente che ogni lingua può averne di diverse)
+ # - Utilizzando le operazioni con gli operatori che desideri, crea degli esempi
+ # che rappresentano tutti i tipi di strutture di controllo esistenti
+ # nella tua lingua:
+ # Condizionali, iterative, eccezioni...
+ # - È necessario stampare il risultato di tutti gli esempi tramite la console.
  #
- # DIFICULTAD EXTRA (opcional):
- # Crea un programa que imprima por consola todos los números comprendidos
- # entre 10 y 55 (incluidos), pares, y que no son ni el 16 ni múltiplos de 3.
+ # DIFFICOLTÀ EXTRA (facoltativo):
+ # Creare un programma che stampi tramite la console tutti i numeri inseriti
+ # compreso tra 10 e 55 (compresi), pari, e che non siano né 16 né multipli di 3.
  #
- # Seguro que al revisar detenidamente las posibilidades has descubierto algo nuevo.
+ # Sicuramente esaminando attentamente le possibilità hai scoperto qualcosa di nuovo.
 
 clear
-
 echo "------------------------"
 echo "Esempio dei 4 operatori: somma sottrazione moltiplicazione divisione"
 
@@ -38,17 +37,20 @@ echo "Esempio dei 4 operatori: somma sottrazione moltiplicazione divisione"
   echo "divisione intera"
   bc <<< "scale=2;10//3"
 
+sleep 1
 echo "------------------------"
 echo "Alternativa, operatori con variabili"
 
   a=8
   b=3
-  echo "Suma ($a + $b): $((a + b))"
-  echo "Resta ($a - $b): $((a - b))"
-  echo "Multiplicación ($a * $b): $((a * b))"
-  echo "División ($a / $b): $((a / b))"
-  echo "Módulo ($a % $b): $((a % b))"
+ 
+  echo "Somma ($a + $b): $((a + b))"
+  echo "Sottrazione ($a - $b): $((a - b))"
+  echo "Moltiplicazione ($a * $b): $((a * b))"
+  echo "Divisione ($a / $b): $((a / b))"
+  echo "Resto ($a % $b): $((a % b))"
 
+sleep 1
 echo "------------------------"
 echo "Operatori de comparazione o di confronto"
 
@@ -60,6 +62,7 @@ echo "Operatori de comparazione o di confronto"
   echo "Maggiore o uguale a: ($a >= $b) es $((a >= b))"
   echo "Minore o uguale a: ($a <= $b) es $((a <= b))"
 
+sleep 1
 echo "------------------------"
 echo "Operatori logici" 
 
@@ -67,6 +70,7 @@ echo "Operatori logici"
   echo "OR ||: ($a != $b) || ($a > $b) es $(( a != b || a > b))"
   echo "NOT !: !($a != $b) es $(( ! (a != b) ))"
 
+sleep 1
 echo "------------------------"
 echo "Operatori di assegnazione"
 
@@ -82,22 +86,32 @@ a=$((a %= b))  #modulo e assegnazione
 #a=$((a **= b)) #esponenziale e assegnazione
 #a=$((a //= b)) #divisione intera e assegnazione
 
-my_variable=5
-echo $my_variable
-let my_variable+=1
-echo $my_variable
-let my_variable-=1
-echo $my_variable
-let my_variable*=2
-echo $my_variable
-let my_variable/=2
-echo $my_variable 
-let my_variable%=3
-echo $my_variable 
-
-
+sleep 1
 echo "------------------------"
-echo "Condizionali"
+echo "Operatori di assegnazione con let"
+
+mia_var=5
+echo $mia_var
+
+let mia_var+=1 
+echo "somma e assegnazione"
+echo $mia_var
+let mia_var-=1 
+echoi "sostrazione e assegnazione"
+echo $mia_var
+let mia_var*=2 
+echo "moltiplicazione e assegnazione"
+echo $mia_var
+let mia_var/=2 
+echo "divisione e assegnazione"
+echo $mia_var 
+let mia_var%=3 
+echo "modulo e assegnazione"
+echo $mia_var 
+
+sleep 1
+echo "------------------------"
+echo "Condizionali if elif else fi "
 
 if [ $a -lt $b ]; then
     echo "$a e minore di $b"
@@ -108,16 +122,16 @@ else [ $a -gt $b ];
 fi
 
 
-echo "Condizionalila equivalencia de condicionales es"
-echo "        -gt     >       mayor "
-echo "        -lt     <       menor "
-echo "        -ge     >=      mayor o igual "
-echo "        -le     <=      menor o igual "
-echo "        -eq     ==      igual "
-echo "        -ne     !=      distinto "
+echo "Equivalenza die condizionali"
+echo "        -gt     >       maggiore "
+echo "        -lt     <       minore "
+echo "        -ge     >=      maggiore o uguale "
+echo "        -le     <=      minore o uguale "
+echo "        -eq     ==      uguale "
+echo "        -ne     !=      non uguale "
 
 
-echo "test: Mostrare sequenza da 10 a 55, non mostrare numeri pari, ne il n16, ne i numeri multiplo da 3"
+echo "test: Mostrare sequenza da 10 a 55 ma non mostrare numeri pari, ne il n16, ne i numeri multiplo da 3"
 
 for numero in $(seq 10 55); do
     if [ $((numero % 2)) -eq 0 ] && [ $((numero)) -ne 16 ] &&  [ $((numero % 3)) -ne 0 ]; then
