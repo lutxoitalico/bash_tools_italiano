@@ -17,5 +17,5 @@
 ## Tools
    * `pcstatus.sh` ottiene alcune informazione sullo status del PC
 
-Scarica tutti i files di utilità:
+Scarica tutti i files di utilità :
    * `git clone https://github.com/lutxoitalico/bash_tools_italiano.git`
